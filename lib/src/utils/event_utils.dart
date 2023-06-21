@@ -81,10 +81,15 @@ EventProperties? _mapSimpleEventToDrawerOrNull(
     event.end.minute,
   ).toJiffy();
 
-  if (jEnd.isBefore(begin, unit: Unit.day) ||
-      jBegin.isAfter(end, unit: Unit.day)) {
+  if (jEnd.isBefore(begin) ||
+      jBegin.isAfter(end)) {
     return null;
   }
+
+  // if (jEnd.isBefore(begin, unit: Unit.day) ||
+  //     jBegin.isAfter(end, unit: Unit.day)) {
+  //   return null;
+  // }
 
   var beginDay = 1;
   if (jBegin.isSameOrAfter(begin)) {
