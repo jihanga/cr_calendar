@@ -18,10 +18,13 @@ class EventProperties {
   EventProperties({
     required this.begin,
     required this.end,
+    required this.isStart,
     required this.name,
     required this.backgroundColor,
   });
 
+  /// Is this event first in line.
+  bool isStart;
   /// Begin day number.
   int begin; // min 1 / max 7
   /// End day number.

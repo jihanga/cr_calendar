@@ -14,19 +14,35 @@ class EventWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 3),
-      padding: const EdgeInsets.symmetric(horizontal: 5),
+      // padding: const EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(4)),
         color: drawer.backgroundColor,
       ),
-      child: FittedBox(
-        fit: BoxFit.fitHeight,
-        alignment: Alignment.centerLeft,
-        child: Text(
-          drawer.name,
-          overflow: TextOverflow.ellipsis,
-          style: const TextStyle(color: Colors.white),
-        ),
+      child: Row(
+        children: [
+          if (drawer.isStart == true)
+            Container(
+              width: 8,
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(4)),
+                color: Colors.greenAccent,
+              ),
+            ),
+          if (drawer.isStart == true)
+            Container(width: 2)
+          else
+            Container(width: 10),
+          FittedBox(
+            fit: BoxFit.fitHeight,
+            alignment: Alignment.centerLeft,
+            child: Text(
+              drawer.name,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(color: Colors.white),
+            ),
+          ),
+        ],
       ),
     );
   }
