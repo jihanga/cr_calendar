@@ -92,13 +92,13 @@ EventProperties? _mapSimpleEventToDrawerOrNull(
   // }
 
 
-  var isFirst = false;
+  var isStart = false;
   var beginDay = 1;
   if (jBegin.isSameOrAfter(begin)) {
     beginDay = (begin.dayOfWeek - jBegin.dayOfWeek < 1)
         ? 1 - (begin.dayOfWeek - jBegin.dayOfWeek)
         : 1 - (begin.dayOfWeek - jBegin.dayOfWeek) + WeekDay.values.length;
-    isFirst = true;
+    isStart = true;
   }
 
   var endDay = Contract.kWeekDaysCount;
@@ -111,7 +111,7 @@ EventProperties? _mapSimpleEventToDrawerOrNull(
   return EventProperties(
       begin: beginDay,
       end: endDay,
-      isStart: isFirst,
+      isStart: isStart,
       name: event.name,
       backgroundColor: event.eventColor);
 }
