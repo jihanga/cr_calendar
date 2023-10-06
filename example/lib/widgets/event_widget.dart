@@ -17,16 +17,16 @@ class EventWidget extends StatelessWidget {
       // padding: const EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(4)),
-        color: drawer.backgroundColor,
+        color: drawer.backgroundColor.withAlpha(128),
       ),
       child: Row(
         children: [
           if (drawer.isStart == true)
             Container(
               width: 8,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(4)),
-                color: Colors.greenAccent,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(4)),
+                color: drawer.backgroundColor,
               ),
             ),
           if (drawer.isStart == true)
