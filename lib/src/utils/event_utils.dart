@@ -51,7 +51,7 @@ List<EventProperties> resolveEventDrawersForWeek(
 
   final beginDate = Jiffy.parseFromJiffy(monthStart).add(weeks: week);
   final endDate =
-      Jiffy.parseFromJiffy(beginDate).add(days: Contract.kWeekDaysCount - 1);
+      Jiffy.parseFromJiffy(beginDate).add(days: Contract.kWeekDaysCount);
 
   for (final e in events) {
     final simpleEvent = _mapSimpleEventToDrawerOrNull(e, beginDate, endDate);
@@ -82,7 +82,7 @@ EventProperties? _mapSimpleEventToDrawerOrNull(
   ).toJiffy();
 
   if (jEnd.isBefore(begin) ||
-      jBegin.isAfter(end)) {
+      jBegin.isSameOrAfter(end)) {
     return null;
   }
 
